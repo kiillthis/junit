@@ -8,6 +8,12 @@ import java.util.ArrayList;
 public class ArrayServiceTest {
 
 
+    /**
+     * тест для перевірки
+     * правильного сортування
+     * по спаданню рядків,
+     * що кратні вхідному індексу
+     */
     @Test
     public void sortArray() {
         int[][] arrayToTest = new int[][]{
@@ -31,6 +37,11 @@ public class ArrayServiceTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+    /**
+     * тест для отримання середнього значення
+     * для рядків,
+     * що не є кратними вхідному індексу
+     */
     @Test
     public void getAverage() {
         int[][] arrayToTest = {
@@ -52,6 +63,13 @@ public class ArrayServiceTest {
         Assert.assertEquals(expected, actual);
     }
 
+
+    /**
+     * тест для отримання середнього значення
+     * для рядків,
+     * що не є кратними вхідному індексу
+     * з іншими значеннями
+     */
     @Test
     public void getAverage2() {
         int[][] arrayToTest = {
@@ -74,6 +92,11 @@ public class ArrayServiceTest {
         Assert.assertEquals(expected, actual);
     }
 
+    /**
+     * тест для сортування з генерацією винятку,
+     * якщо вхідним масивом є
+     * пустий масив
+     */
     @Test(expected = IllegalArgumentException.class)
     public void sortWithEmptyArray() {
         int[][] array = new int[0][0];
@@ -82,6 +105,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для сортування з генерацією винятку,
+     * якщо вхідним масивом є
+     * пустий масив
+     */
     @Test(expected = IllegalArgumentException.class)
     public void sortWithEmptyArray2() {
         int[][] array = new int[1][0];
@@ -90,6 +118,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для отримання середнього значення з генерацією винятку,
+     * якщо вхідним масивом є
+     * пустий масив
+     */
     @Test(expected = IllegalArgumentException.class)
     public void getAverageWithEmptyArray() {
         int[][] array = new int[0][0];
@@ -98,6 +131,11 @@ public class ArrayServiceTest {
         ArrayList<Double> actual = new ArrayService().getAverage(array, row);
     }
 
+    /**
+     * тест для отримання середнього значення з генерацією винятку,
+     * якщо вхідним масивом є
+     * пустий масив
+     */
     @Test(expected = IllegalArgumentException.class)
     public void getAverageWithEmptyArray2() {
         int[][] array = new int[1][0];
@@ -106,6 +144,11 @@ public class ArrayServiceTest {
         ArrayList<Double> actual = new ArrayService().getAverage(array, row);
     }
 
+    /**
+     * тест для сортування,
+     * якщо вхідним індексом є
+     * значення 0
+     */
     @Test(expected = RowZeroException.class)
     public void sortWithIndexEqualsZero() {
         int[][] array = new int[2][2];
@@ -114,6 +157,12 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+
+    /**
+     * тест для отримання середнього значення,
+     * якщо вхідним індексом є
+     * значення 0
+     */
     @Test(expected = RowZeroException.class)
     public void getAverageWithIndexEqualsZero() {
         int[][] array = new int[2][2];
@@ -122,6 +171,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для сортування,
+     * якщо масив має лише
+     * 1 рядок
+     */
     @Test(expected = NotEnoughRowsAndColumnException.class)
     public void sortWithOneRow() {
         int[][] array = new int[1][2];
@@ -130,6 +184,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для отримання середнього значення,
+     * якщо масив має лише
+     * 1 рядок
+     */
     @Test(expected = NotEnoughRowsAndColumnException.class)
     public void getAverageWithOneRow() {
         int[][] array = new int[1][2];
@@ -138,6 +197,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для сортування,
+     * якщо вхідний індекс більше
+     * за границі масива
+     */
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void sortWithRowGreaterThanBounds() {
         int[][] array = new int[5][5];
@@ -146,6 +210,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для отримання середнього значення,
+     * якщо вхідний індекс більше
+     * за границі масива
+     */
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void getAverageWithRowGreaterThanBounds() {
         int[][] array = new int[5][5];
@@ -154,6 +223,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для сортування,
+     * якщо вхідний індекс є
+     * від'ємним
+     */
     @Test(expected = RowNegativeException.class)
     public void sortWithNegativeRow() {
         int[][] array = new int[5][5];
@@ -162,6 +236,11 @@ public class ArrayServiceTest {
         int[][] actual = new ArrayService().sortArray(array, row);
     }
 
+    /**
+     * тест для отримання середнього значення,
+     * якщо вхідний індекс є
+     * від'ємним
+     */
     @Test(expected = RowNegativeException.class)
     public void getAverageWithNegativeRow() {
         int[][] array = new int[5][5];
