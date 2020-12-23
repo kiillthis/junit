@@ -40,5 +40,6 @@ public class Main {
         ArrayList<Double> avg = as.getAverage(array, 2);
 
         System.out.println("Середні значення = " + Arrays.toString(avg.toArray()));
+        System.out.println("kek");
     }
 }
