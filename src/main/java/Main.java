@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Main {
                 array[k][l] = (int) (Math.random() * 11);
             }
         }
-        System.out.println("My array");
+        System.out.println("Масив до:");
         for (int k = 0; k < array.length; k++) {
             for (int l = 0; l < array[k].length; l++) {
                 System.out.print(array[k][l] + " ");
@@ -26,13 +27,19 @@ public class Main {
 
         array = as.sortArray(array, 2);
 
+        System.out.println("Індекс для сортування та пошуку середнього значення = 2");
 
-        System.out.println("My array after work");
+
+        System.out.println("Масив після сортування");
         for (int k = 0; k < array.length; k++) {
             for (int l = 0; l < array[k].length; l++) {
                 System.out.print(array[k][l] + " ");
             }
             System.out.println(" ");
         }
+        ArrayList<Double> avg = as.getAverage(array, 2);
+
+        System.out.println("Середні значення = " + Arrays.toString(avg.toArray()));
+        System.out.println("kek");
     }
 }
